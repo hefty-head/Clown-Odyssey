@@ -52,7 +52,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraMotor.cs" />
+     <Compile Include="Assets\collide.cs" />
      <Compile Include="Assets\Player.cs" />
+     <Compile Include="Assets\Portal.cs" />
+     <Compile Include="Assets\TestInteraction.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
