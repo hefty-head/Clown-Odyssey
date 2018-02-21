@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Clown Odyssey.unity
+- path: Assets/Scenes/Clown Odyssey.unity
   isLoaded: 1
   isActive: 1

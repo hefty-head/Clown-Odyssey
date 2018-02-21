@@ -8,7 +8,7 @@ public class CameraMotor : MonoBehaviour {
 	public float boundY = 0.05f;
 	// Use this for initialization
 	void Start () {
-		
+		DontDestroyOnLoad (this); 
 	}
 	
 	// Update is called once per frame

@@ -51,11 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraMotor.cs" />
-     <Compile Include="Assets\collide.cs" />
-     <Compile Include="Assets\Player.cs" />
-     <Compile Include="Assets\Portal.cs" />
-     <Compile Include="Assets\TestInteraction.cs" />
+     <Compile Include="Assets\Script\CameraMotor.cs" />
+     <Compile Include="Assets\Script\collide.cs" />
+     <Compile Include="Assets\Script\FloatingText.cs" />
+     <Compile Include="Assets\Script\FloatingTextManager.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\Interactable.cs" />
+     <Compile Include="Assets\Script\Player.cs" />
+     <Compile Include="Assets\Script\PlayerInteraction.cs" />
+     <Compile Include="Assets\Script\Portal.cs" />
+     <Compile Include="Assets\Script\TestInteraction.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
