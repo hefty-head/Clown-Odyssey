@@ -51,10 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FirstDemomark.cs" />
      <Compile Include="Assets\Script\CameraMotor.cs" />
      <Compile Include="Assets\Script\collide.cs" />
      <Compile Include="Assets\Script\DemoInteract1.cs" />
+     <Compile Include="Assets\Script\FirstDemomark.cs" />
      <Compile Include="Assets\Script\FloatingText.cs" />
      <Compile Include="Assets\Script\FloatingTextManager.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
@@ -62,6 +62,7 @@
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\PlayerInteraction.cs" />
      <Compile Include="Assets\Script\Portal.cs" />
+     <Compile Include="Assets\Script\SecondDemoMark.cs" />
      <Compile Include="Assets\Script\TestInteraction.cs" />
      <Compile Include="Assets\Warpinteract.cs" />
  <Reference Include="UnityEngine.UI">
