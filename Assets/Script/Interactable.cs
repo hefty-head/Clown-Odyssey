@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour {
 		if (playerScript.canMove && numMessages == 2)
 		{
 			playerScript.canMove = false;
-			txt.text = "Eat pant asshole";
+			txt.text = "I am a door";
 			canvas.SetActive (true);
 			numMessages--;
 
@@ -26,7 +26,7 @@ public class Interactable : MonoBehaviour {
 		}
 		else if (numMessages == 1)
 		{
-			txt.text = "Q to the bourgeoisie";
+			txt.text = "I say multiple things. This interaction system is built around text, but it's flexible enough to do other things too!";
 			numMessages--;
 		}
 		else if (!playerScript.canMove && numMessages == 0) 
