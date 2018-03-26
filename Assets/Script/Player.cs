@@ -10,9 +10,12 @@ public class Player : MonoBehaviour {
 	private Vector3 moveDelta;
 	private BoxCollider2D boxCollider;
 	private RaycastHit2D hit;
+    private Animator animator;
+
 	private void Start () {
 		boxCollider = GetComponent<BoxCollider2D> ();
-		DontDestroyOnLoad (this); 
+		DontDestroyOnLoad (this);
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +26,10 @@ public class Player : MonoBehaviour {
 		float x = Input.GetAxisRaw ("Horizontal");
 		float y = Input.GetAxisRaw ("Vertical");
 		moveDelta = new Vector3 (x, y, 0);
+        if (Input.GetKey("a") || Input.GetKey("d")||Input.GetKey("w")||Input.GetKey("s"))
+            animator.SetInteger("State", 1);
+        else
+            animator.SetInteger("State", 0);
 
 		//swap direction for right/left
 		if (moveDelta.x > 0)
