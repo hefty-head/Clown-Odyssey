@@ -9,11 +9,13 @@ public class EnemyClass : MonoBehaviour {
 	public string name;
 	public string introText;
 	public string[] actions = { "", "", "", "" };
+	public GameObject ActionSet;
 	public Text Action1;
 	public Text Action2;
 	public Text Action3;
 	public Text Action4;
 	public Text General;
+	public int begin = 0;
 	// Use this for initialization
 
 	protected virtual void start()
