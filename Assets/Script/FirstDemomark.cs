@@ -31,6 +31,8 @@ public class FirstDemomark : Interactable {
 		else if (numMessages == 1)
 		{
 			txt.text = "This isn't a lot, but having this base completed will let us build much faster over the next quarter. Enjoy!";
+
+
 			numMessages--;
 		}
 		else if (!playerScript.canMove && numMessages == 0) 
@@ -38,6 +40,10 @@ public class FirstDemomark : Interactable {
 			canvas.SetActive (false);
 			playerScript.canMove = true;
 			numMessages = 4;
+			Debug.Log ("Battle activated");
+			GameManager.instance.SaveState();
+			string sceneName = "battlescene";
+			UnityEngine.SceneManagement.SceneManager.LoadScene (sceneName);
 		}
 		//if(Input.GetButtonDown("Cancel"))
 		//playerScript.canMove = true;

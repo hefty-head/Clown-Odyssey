@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	//References
 	public Player player;
 	public FloatingTextManager floatingText;
-
+	public int health;
 	public int money;
 	public int experience;
 
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour {
 	public void SaveState()
 	{
 		string s = "";
+		s += health.ToString() + "|";
 		s += money.ToString() + "|";
 		s += experience.ToString();
 		//could also set things like location for saving purposes
@@ -49,8 +50,9 @@ public class GameManager : MonoBehaviour {
 		if (!PlayerPrefs.HasKey ("SaveState"))
 			return; //If no save is found, return without loading
 		string[] data = PlayerPrefs.GetString ("SaveState").Split('|');
-		money = int.Parse(data [0]);
-		experience = int.Parse(data [1]);
+		health = int.Parse(data [0]);
+		money = int.Parse(data [1]);
+		experience = int.Parse(data [2]);
 		Debug.Log ("load");
 	}
 }

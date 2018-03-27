@@ -14,6 +14,7 @@ public class collide : MonoBehaviour {
 	}
 	protected virtual void Update()
 	{
+		Debug.Log ("can i get uhhh");
 		boxCollider.OverlapCollider (filter, hits);
 		//stores overlap in hits
 
@@ -21,6 +22,8 @@ public class collide : MonoBehaviour {
 		{
 			if (hits [i] == null)
 				continue;
+
+			Debug.Log ("fuhh");
 			OnCollide (hits[i]);
 
 			hits [i] = null;

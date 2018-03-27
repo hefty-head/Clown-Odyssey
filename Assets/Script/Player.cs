@@ -7,11 +7,13 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	public bool canMove = true;
+	public bool inBattle = false;
 	private Vector3 moveDelta;
 	private BoxCollider2D boxCollider;
 	private RaycastHit2D hit;
     private Animator animator;
-
+	public int health = 100;
+	//Define list for inventory
 	private void Start () {
 		boxCollider = GetComponent<BoxCollider2D> ();
 		DontDestroyOnLoad (this);
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () {
 		// reset move delta
-		if (!canMove)
+		if (!canMove || inBattle)
 			return;
 		float x = Input.GetAxisRaw ("Horizontal");
 		float y = Input.GetAxisRaw ("Vertical");
