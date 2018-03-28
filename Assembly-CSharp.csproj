@@ -69,6 +69,9 @@
      <Compile Include="Assets\Script\SecondDemoMark.cs" />
      <Compile Include="Assets\Script\TestInteraction.cs" />
      <Compile Include="Assets\Warpinteract.cs" />
+     <None Include="Assets\Resources\Data\enemy-data.xml" />
+     <None Include="Assets\Resources\Data\readme.txt" />
+     <None Include="Assets\Resources\Data\enemy data readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

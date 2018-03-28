@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <enemy-data>
+        <enemy internalname = "elonmuskrat">
+			<sprite-info>
+				enemy_ElonMuskrat
+			</sprite-info>
+            <health>
+                100
+            </health>
+			<Name>
+				Elon Muskrat
+			</Name>
+			<Intro-Text>
+				I just got verbal government approval to turn you inside out!
+			</Intro-Text>
+            
+                <A1Text>
+                    Cambridge Analytica Scandal
+                </A1Text>
+                <A1Effect>
+                    0
+                </A1Effect>
+                <A1Damage>
+                   5 
+                </A1Damage>
+                <A1Performance-Text>
+                    You force him off a popular social media website
+                </A1Performance-Text>
+                <A1Reaction-Text>
+                    Looks lame anyway
+                </A1Reaction-Text>
+            
+            
+                <A2Text>
+                    Remove photons from the room
+                </A2Text>
+                <A2Effect>
+                    0
+                </A2Effect>
+                <A2Damage>
+                   10 
+                </A2Damage>
+                <A2Performance-Text>
+                    You turn off the lights
+                </A2Performance-Text>
+                <A2Reaction-Text>
+                    Hiss! A lack of photons, my primal fear!
+                </A2Reaction-Text>
+            
+                <A3Text>
+                    Stroke his ego
+                </A3Text>
+                <A3Effect>
+                    0
+                </A3Effect>
+                <A3Damage>
+                   0 
+                </A3Damage>
+                <A3Performance-Text>
+                    You compare him to Tony Stark
+                </A3Performance-Text>
+                <A3Reaction-Text>
+                    Well, I guess I am pretty amazing
+                </A3Reaction-Text>
+            
+                <A4Text>
+                    Tiptoe away
+                </A4Text>
+                <A4Effect>
+                    0
+                </A4Effect>
+                <A4Damage>
+                   0 
+                </A4Damage>
+                <A4Performance-Text>
+                    You wait for the photons to dissipate before rushing off
+                </A4Performance-Text>
+                <A4Reaction-Text>
+                </A4Reaction-Text>
+            
+        </enemy>
+    </enemy-data>
