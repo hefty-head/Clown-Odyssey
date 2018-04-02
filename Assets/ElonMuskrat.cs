@@ -14,7 +14,7 @@ public class ElonMuskrat : EnemyClass {
 		Debug.Log ("give me muskrat or give me death");
 		SpriteRenderer rndr = GetComponent<SpriteRenderer>();
 
-		rndr.sprite = Resources.Load<Sprite> ("enemy_ElonMuskrat");//"Assets/Artwork/sprites/EnemySprites/ElonMuskrat";
+		rndr.sprite = Resources.Load<Sprite> ("MathMonster1");//"Assets/Artwork/sprites/EnemySprites/ElonMuskrat";
 		General.text = introText;
 		Action1.text = actions [0];
 		Action2.text = actions [1];

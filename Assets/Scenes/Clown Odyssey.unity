@@ -824,6 +824,7 @@ MonoBehaviour:
   xpTable: 
   player: {fileID: 0}
   floatingText: {fileID: 620264649}
+  health: 0
   money: 0
   experience: 0
 --- !u!4 &604533652
@@ -14729,7 +14730,7 @@ SpriteRenderer:
   m_SortingLayerID: -1253318603
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f8df93e466e1d5c4f9c3ad7aa54a5e3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8149c551200976d49af435a60043525f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128307,6 +128308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   inBattle: 0
+  health: 100
 --- !u!212 &1575967689
 SpriteRenderer:
   m_ObjectHideFlags: 0
