@@ -15,7 +15,9 @@ public class EnemyClass : MonoBehaviour {
 	public string introText;
 	public string[] actions = { "", "", "", "" };
 	public string[] performanceText = { "", "", "", "" }; //This is a lot of variables that i don't think i need. Try and figure out a more efficient and clean way of doing this
-	public string[] reactionText = { "", "", "", "" };
+	public string[] reactionText = { "", "", "", "" }; //These can also be not public lmao
+	int[] damage = { 0, 0, 0, 0 };
+	int[] effects = { 0, 0, 0, 0 };
 	public string spriteName;
 	XDocument enemyDoc;
 	public IEnumerable<XElement> items;
@@ -69,6 +71,16 @@ public class EnemyClass : MonoBehaviour {
 				reactionText[1] = item.Parent.Element("A2Reaction-Text").Value.Trim();
 				reactionText[2] = item.Parent.Element("A3Reaction-Text").Value.Trim();
 				reactionText[3] = item.Parent.Element("A4Reaction-Text").Value.Trim();
+
+				damage[0] = int.Parse(item.Parent.Element("A1Damage").Value);
+				damage[1] = int.Parse(item.Parent.Element("A2Damage").Value);
+				damage[2] = int.Parse(item.Parent.Element("A3Damage").Value);
+				damage[3] = int.Parse(item.Parent.Element("A4Damage").Value);
+
+				effects[0] = int.Parse(item.Parent.Element("A1Effect").Value);
+				effects[1] = int.Parse(item.Parent.Element("A2Effect").Value);
+				effects[2] = int.Parse(item.Parent.Element("A3Effect").Value);
+				effects[3] = int.Parse(item.Parent.Element("A4Effect").Value);
 			}
 		}
 
@@ -79,7 +91,10 @@ public class EnemyClass : MonoBehaviour {
 		Action3.text = actions [2];
 		Action4.text = actions [3];
 
-		btn1.onClick.AddListener (action1);
+		btn1.onClick.AddListener (turn1);
+		btn2.onClick.AddListener (turn2);
+		btn3.onClick.AddListener (turn3);
+		btn4.onClick.AddListener (turn4);
 
 		Debug.Log ("WTF");
 		//rndr.color = new Color(200,0,0);
@@ -105,6 +120,17 @@ public class EnemyClass : MonoBehaviour {
 
 		}
 	}
+
+	void resetTurn()
+	{
+		General.enabled = false;
+		Action1.enabled = true;
+		Action2.enabled = true;
+		Action3.enabled = true;
+		Action4.enabled = true;
+		ActionSet.SetActive (true);
+	}
+
 	protected virtual void playerAction(int damage, int effectNum)
 	{
 		switch (effectNum)
@@ -118,19 +144,38 @@ public class EnemyClass : MonoBehaviour {
 		}
 	}
 
-	IEnumerator waitForSubmit()
-	{
-		
-		while (true) {
-			while(!Input.GetButtonDown ("Submit")) {
-				Debug.Log ("peepee");
-				yield return null;
-			}
-				Debug.Log ("nothing");
-		}
-	}
 
-	void action1()
+	void turn1()
+	{
+
+		StartCoroutine ("action1");
+	}
+	void turn2()
+	{
+
+		StartCoroutine ("action2");
+	}
+	void turn3()
+	{
+
+		StartCoroutine ("action3");
+	}
+	void turn4()
+	{
+
+		StartCoroutine ("action4");
+	}
+		
+	private IEnumerator DamageIndicator(int damage)
+	{
+		Debug.Log ("in damage indicator");
+		Text indicator = GameObject.Find("Damage Indicator").GetComponent<Text>();
+		indicator.text = damage.ToString();
+		indicator.enabled = true;
+		yield return new WaitForSeconds(1);
+		indicator.enabled = false;
+	}
+	IEnumerator action1()
 	{
 		//StartCoroutine (waitForSubmit);
 		//Defaults to a generic attack, default form will probably never be used
@@ -138,25 +183,108 @@ public class EnemyClass : MonoBehaviour {
 		ActionSet.SetActive(false);
 		General.enabled = true;
 		General.text = performanceText [0];
-		waitForSubmit ();
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("pp");
+			yield return null;
+		}
+
 		General.text = reactionText [0];
+		StartCoroutine( DamageIndicator (damage[0]));
+		playerAction (damage [0], effects [0]);
+		yield return new WaitForSeconds(1);
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("p3");
+			yield return null;
+		}
+		resetTurn ();
 
 	}
-	protected virtual void action2()
+	IEnumerator action2()
 	{
+		//StartCoroutine (waitForSubmit);
+		//Defaults to a generic attack, default form will probably never be used
+		Debug.Log("Action 2 call");
+		ActionSet.SetActive(false);
+		General.enabled = true;
+		General.text = performanceText [1];
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("pp");
+			yield return null;
+		}
+
+		General.text = reactionText [1];
+		StartCoroutine( DamageIndicator (damage[1]));
+		playerAction (damage [1], effects [1]);
+		yield return new WaitForSeconds(1);
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("p3");
+			yield return null;
+		}
+		resetTurn ();
 
 	}
-	protected virtual void action3()
+	IEnumerator action3()
 	{
+		//StartCoroutine (waitForSubmit);
+		//Defaults to a generic attack, default form will probably never be used
+		Debug.Log("Action 3 call");
+		ActionSet.SetActive(false);
+		General.enabled = true;
+		General.text = performanceText [2];
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("pp");
+			yield return null;
+		}
+
+		General.text = reactionText [2];
+		StartCoroutine( DamageIndicator (damage[2]));
+		playerAction (damage [2], effects [2]);
+		yield return new WaitForSeconds(1);
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("p3");
+			yield return null;
+		}
+		resetTurn ();
 
 	}
-	protected virtual void action4()
+	IEnumerator action4()
 	{
-		//defaults to a runaway action, returns you to previous scene with n success rate
+		//StartCoroutine (waitForSubmit);
+		//Defaults to a generic attack, default form will probably never be used
+		Debug.Log("Action 4 call");
+		ActionSet.SetActive(false);
+		General.enabled = true;
+		General.text = performanceText [3];
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("pp");
+			yield return null;
+		}
+
+		General.text = reactionText [3];
+		StartCoroutine( DamageIndicator (damage[3]));
+		playerAction (damage [3], effects [3]);
+		yield return new WaitForSeconds(1);
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("p3");
+			yield return null;
+		}
+		resetTurn ();
+
 	}
 
 	protected virtual void enemyAction()
 	{
 
+	}
+	IEnumerator waitForSubmit()
+	{
+		Debug.Log ("Coroutine");
+	
+		while (!Input.GetButtonDown ("Submit")) {
+			Debug.Log ("pp");
+			yield return null;
+		}
+		yield return null;
+		Debug.Log ("F");
 	}
 }
