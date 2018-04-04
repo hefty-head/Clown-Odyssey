@@ -4,6 +4,8 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
+
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,11 +15,16 @@ public class EnemyClass : MonoBehaviour {
 	public int health;
 	public string name;
 	public string introText;
-	public string[] actions = { "", "", "", "" };
-	public string[] performanceText = { "", "", "", "" }; //This is a lot of variables that i don't think i need. Try and figure out a more efficient and clean way of doing this
-	public string[] reactionText = { "", "", "", "" }; //These can also be not public lmao
-	int[] damage = { 0, 0, 0, 0 };
-	int[] effects = { 0, 0, 0, 0 };
+	private string[] actions = { "", "", "", "" };
+	private string[] performanceText = { "", "", "", "" }; //This is a lot of variables that i don't think i need. Try and figure out a more efficient and clean way of doing this
+	private string[] reactionText = { "", "", "", "" }; //These can also be not public lmao
+	private int[] damage = { 0, 0, 0, 0 };
+	private int[] effects = { 0, 0, 0, 0 };
+
+	private string defeat;
+
+	private string[] enemyPT = { "", "", "", "" };
+	private int[] enemyD = { 0, 0, 0, 0 };
 	public string spriteName;
 	XDocument enemyDoc;
 	public IEnumerable<XElement> items;
@@ -81,6 +88,18 @@ public class EnemyClass : MonoBehaviour {
 				effects[1] = int.Parse(item.Parent.Element("A2Effect").Value);
 				effects[2] = int.Parse(item.Parent.Element("A3Effect").Value);
 				effects[3] = int.Parse(item.Parent.Element("A4Effect").Value);
+
+				enemyPT[0] = item.Parent.Element("EA1PT").Value.Trim();
+				enemyPT[1] = item.Parent.Element("EA2PT").Value.Trim();
+				enemyPT[2] = item.Parent.Element("EA3PT").Value.Trim();
+				enemyPT[3] = item.Parent.Element("EA4PT").Value.Trim();
+
+				enemyD[0] = int.Parse(item.Parent.Element("EA1D").Value);
+				enemyD[1] = int.Parse(item.Parent.Element("EA2D").Value);
+				enemyD[2] = int.Parse(item.Parent.Element("EA3D").Value);
+				enemyD[3] = int.Parse(item.Parent.Element("EA4D").Value);
+
+				defeat = item.Parent.Element("DText").Value.Trim();
 			}
 		}
 
@@ -121,14 +140,37 @@ public class EnemyClass : MonoBehaviour {
 		}
 	}
 
-	void resetTurn()
+	IEnumerator startEnemyTurn()
 	{
-		General.enabled = false;
-		Action1.enabled = true;
-		Action2.enabled = true;
-		Action3.enabled = true;
-		Action4.enabled = true;
-		ActionSet.SetActive (true);
+		//Random rnd = new Random();
+		if (health <= 0) {
+			//Show defeat text
+			General.text = defeat;
+			
+		} else {
+			int pickMove = Random.Range (0, 3);
+			Debug.Log ("enemy Turn");
+			Debug.Log (pickMove);
+			Debug.Log (enemyPT [pickMove]);
+			General.text = enemyPT [pickMove];
+			Text indicator = GameObject.Find ("Damage Indicator").GetComponent<Text> ();
+			indicator.text = enemyD [pickMove].ToString ();
+			indicator.enabled = true;
+			yield return new WaitForSeconds (1);
+			indicator.enabled = false;
+
+			while (!Input.GetButtonDown ("Submit")) {
+				Debug.Log ("pp");
+				yield return null;
+			}
+
+			General.enabled = false;
+			Action1.enabled = true;
+			Action2.enabled = true;
+			Action3.enabled = true;
+			Action4.enabled = true;
+			ActionSet.SetActive (true);
+		}
 	}
 
 	protected virtual void playerAction(int damage, int effectNum)
@@ -196,7 +238,7 @@ public class EnemyClass : MonoBehaviour {
 			Debug.Log ("p3");
 			yield return null;
 		}
-		resetTurn ();
+		StartCoroutine(startEnemyTurn ());
 
 	}
 	IEnumerator action2()
@@ -220,7 +262,7 @@ public class EnemyClass : MonoBehaviour {
 			Debug.Log ("p3");
 			yield return null;
 		}
-		resetTurn ();
+		StartCoroutine(startEnemyTurn ());
 
 	}
 	IEnumerator action3()
@@ -244,7 +286,7 @@ public class EnemyClass : MonoBehaviour {
 			Debug.Log ("p3");
 			yield return null;
 		}
-		resetTurn ();
+		StartCoroutine(startEnemyTurn ());
 
 	}
 	IEnumerator action4()
@@ -265,10 +307,10 @@ public class EnemyClass : MonoBehaviour {
 		playerAction (damage [3], effects [3]);
 		yield return new WaitForSeconds(1);
 		while (!Input.GetButtonDown ("Submit")) {
-			Debug.Log ("p3");
+			Debug.Log ("p4");
 			yield return null;
 		}
-		resetTurn ();
+		StartCoroutine(startEnemyTurn ());
 
 	}
 

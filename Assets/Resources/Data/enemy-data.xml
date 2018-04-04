@@ -30,6 +30,7 @@
                     Looks lame anyway
                 </A1Reaction-Text>
             
+			
             
                 <A2Text>
                     Remove photons from the room
@@ -63,6 +64,7 @@
                     Well, I guess I am pretty amazing
                 </A3Reaction-Text>
             
+			
                 <A4Text>
                     Tiptoe away
                 </A4Text>
@@ -77,6 +79,40 @@
                 </A4Performance-Text>
                 <A4Reaction-Text>
                 </A4Reaction-Text>
+				
+				
+				<EA1PT>
+					He gets into his tesla and runs you over!
+				</EA1PT>
+				<EA1D>
+					20
+				</EA1D>
+				
+				
+				<EA2PT>
+					Elon is distracted by his Boring Company Flamethrower!
+				</EA2PT>
+				<EA2D>
+					0
+				</EA2D>
+				
+				<EA3PT>
+					His spaceX rocket smashed into you before safely landing for another use!
+				</EA3PT>
+				<EA3D>
+					30
+				</EA3D>
+				
+				<EA4PT>
+					Elon seems lost
+				</EA4PT>
+				<EA4D>
+					0
+				</EA4D>
+				
+				<DText>
+					Elon hobbles away defeated, and dejected
+				</DText>
             
         </enemy>
     </enemy-data>
