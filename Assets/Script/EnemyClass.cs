@@ -4,10 +4,11 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-
-
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+
 
 public class EnemyClass : MonoBehaviour {
 	//I basically started writing the whole battle system in here so I guess we'll roll with that
@@ -41,13 +42,14 @@ public class EnemyClass : MonoBehaviour {
 	public Button btn3;
 	public Button btn4;
 
+	private GameObject player;
 
 	public int begin = 0;
 	// Use this for initialization
 
 	void Start()
 	{
-		internalName = "elonmuskrat"; //Figure out how to send this value
+		internalName = InfoTransition.getEnemyName(); //Figure out how to send this value
 		Debug.Log ("give me muskrat or give me death");
 		SpriteRenderer rndr = GetComponent<SpriteRenderer>();
 		enemyDoc = XDocument.Load ("Assets/Resources/data/enemy-data.xml");
@@ -146,6 +148,12 @@ public class EnemyClass : MonoBehaviour {
 		if (health <= 0) {
 			//Show defeat text
 			General.text = defeat;
+			UnityEngine.SceneManagement.SceneManager.LoadScene (InfoTransition.getSceneName());
+			Player playerScript = player.GetComponent<Player>();
+			float[] position = InfoTransition.getPosition ();
+			playerScript.transform.position = new Vector3(position[0], position[1], 0);
+	//		playerScript.transform.position.y = position[1];
+
 			
 		} else {
 			int pickMove = Random.Range (0, 3);

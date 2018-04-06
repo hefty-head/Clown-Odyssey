@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class FirstDemomark : Interactable {
 	private int numMessages = 4;
 	public override void OnInteract()
@@ -43,6 +43,10 @@ public class FirstDemomark : Interactable {
 			Debug.Log ("Battle activated");
 			GameManager.instance.SaveState();
 			string sceneName = "battlescene";
+			InfoTransition.setEnemyName ("elonmuskrat");
+			Scene scene = SceneManager.GetActiveScene ();
+			InfoTransition.setSceneName (scene.name);
+			InfoTransition.setPosition(playerScript.transform.position.x,playerScript.transform.position.y);
 			UnityEngine.SceneManagement.SceneManager.LoadScene (sceneName);
 		}
 		//if(Input.GetButtonDown("Cancel"))
