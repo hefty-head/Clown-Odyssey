@@ -54,6 +54,7 @@
      <Compile Include="Assets\BattleInitiate.cs" />
      <Compile Include="Assets\BattleScript.cs" />
      <Compile Include="Assets\ElonMuskrat.cs" />
+     <Compile Include="Assets\Load.cs" />
      <Compile Include="Assets\Script\CameraMotor.cs" />
      <Compile Include="Assets\Script\collide.cs" />
      <Compile Include="Assets\Script\DemoInteract1.cs" />

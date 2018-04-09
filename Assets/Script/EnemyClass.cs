@@ -148,11 +148,15 @@ public class EnemyClass : MonoBehaviour {
 		if (health <= 0) {
 			//Show defeat text
 			General.text = defeat;
+
 			UnityEngine.SceneManagement.SceneManager.LoadScene (InfoTransition.getSceneName());
+
 			Player playerScript = player.GetComponent<Player>();
+			playerScript.leaveBattle();
 			float[] position = InfoTransition.getPosition ();
 			playerScript.transform.position = new Vector3(position[0], position[1], 0);
 	//		playerScript.transform.position.y = position[1];
+
 
 			
 		} else {
