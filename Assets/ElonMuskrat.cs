@@ -43,8 +43,8 @@ public class ElonMuskrat : EnemyClass {
 		}
 	}
 
-	protected override void action1()
-	{
+	//protected override void action1()
+	//{
 		
-	}
+	//}
 }
