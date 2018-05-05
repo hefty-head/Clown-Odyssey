@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private Animator animator;
 	private int encounterLimiter = 0;
 	public int health = 100;
+	private string[] demoEnemyList = { "elonmuskrat", "etothex"};
 	//Define list for inventory
 	private void Start () {
 		boxCollider = GetComponent<BoxCollider2D> ();
@@ -43,7 +44,8 @@ public class Player : MonoBehaviour {
 			GameManager.instance.SaveState();
 			string sceneName = "battlescene";
 			inBattle = true;
-			InfoTransition.setEnemyName ("elonmuskrat"); //This will be changed to randomly draw from a document with encounter data
+			int whichEnemy = Random.Range (1, 1);
+			InfoTransition.setEnemyName (demoEnemyList[whichEnemy]); //This will be changed to randomly draw from a document with encounter data
 			Scene scene = SceneManager.GetActiveScene ();
 			InfoTransition.setSceneName (scene.name);
 			InfoTransition.setPosition(playerScript.transform.position.x,playerScript.transform.position.y);

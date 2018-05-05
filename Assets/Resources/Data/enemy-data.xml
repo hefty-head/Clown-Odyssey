@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <enemy-data>
         <enemy internalname = "elonmuskrat">
+		
 			<sprite-info>
 				enemy_ElonMuskrat
 			</sprite-info>
@@ -115,4 +116,119 @@
 				</DText>
             
         </enemy>
-    </enemy-data>
+		<enemy internalname = "etothex">
+			<sprite-info>
+				enemy_MathMonster1
+			</sprite-info>
+            <health>
+                100
+            </health>
+			<Name>
+				Mathematical Monstrosity
+			</Name>
+			<Intro-Text>
+				A strange function leers at you from an unsafe distance!
+			</Intro-Text>
+            
+                <A1Text>
+                    Differentiate
+                </A1Text>
+                <A1Effect>
+                    0
+                </A1Effect>
+                <A1Damage>
+                   -5 
+                </A1Damage>
+                <A1Performance-Text>
+                    You attempt to differentiate the function
+                </A1Performance-Text>
+                <A1Reaction-Text>
+                    A strange function leers at you from an unsafe distance!
+                </A1Reaction-Text>
+            
+			
+            
+                <A2Text>
+                    Remove photons from the room
+                </A2Text>
+                <A2Effect>
+                    0
+                </A2Effect>
+                <A2Damage>
+                   10 
+                </A2Damage>
+                <A2Performance-Text>
+                    You turn off the lights
+                </A2Performance-Text>
+                <A2Reaction-Text>
+                    Hiss! A lack of photons, my primal fear!
+                </A2Reaction-Text>
+            
+                <A3Text>
+                    Stroke his ego
+                </A3Text>
+                <A3Effect>
+                    0
+                </A3Effect>
+                <A3Damage>
+                   99 
+                </A3Damage>
+                <A3Performance-Text>
+                    You compare him to Tony Stark
+                </A3Performance-Text>
+                <A3Reaction-Text>
+                    Well, I guess I am pretty amazing
+                </A3Reaction-Text>
+            
+			
+                <A4Text>
+                    Tiptoe away
+                </A4Text>
+                <A4Effect>
+                    0
+                </A4Effect>
+                <A4Damage>
+                   0 
+                </A4Damage>
+                <A4Performance-Text>
+                    You wait for the photons to dissipate before rushing off
+                </A4Performance-Text>
+                <A4Reaction-Text>
+                </A4Reaction-Text>
+				
+				
+				<EA1PT>
+					He gets into his tesla and runs you over!
+				</EA1PT>
+				<EA1D>
+					20
+				</EA1D>
+				
+				
+				<EA2PT>
+					Elon is distracted by his Boring Company Flamethrower!
+				</EA2PT>
+				<EA2D>
+					0
+				</EA2D>
+				
+				<EA3PT>
+					His spaceX rocket smashed into you before safely landing for another use!
+				</EA3PT>
+				<EA3D>
+					30
+				</EA3D>
+				
+				<EA4PT>
+					Elon seems lost
+				</EA4PT>
+				<EA4D>
+					0
+				</EA4D>
+				
+				<DText>
+					Elon hobbles away defeated, and dejected
+				</DText>
+            
+        </enemy>
+   </enemy-data>
