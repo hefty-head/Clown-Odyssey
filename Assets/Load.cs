@@ -6,7 +6,8 @@ public class Load : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		string sceneName = "Clown Odyssey";
+		string sceneName = "ClassroomMap";
+		Debug.Log ("Prepping load");
 
 		UnityEngine.SceneManagement.SceneManager.LoadScene (sceneName);
 	}

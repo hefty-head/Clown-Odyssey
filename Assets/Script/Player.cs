@@ -56,7 +56,7 @@ public class Player : MonoBehaviour {
 		// reset move delta
 		if(SceneManager.GetActiveScene().name != "battlescene")
 			inBattle = false;
-		if (!canMove || inBattle)
+		if (!canMove || inBattle || InfoTransition.getInBattle() == 1)
 			return;
 		float x = Input.GetAxisRaw ("Horizontal");
 		float y = Input.GetAxisRaw ("Vertical");

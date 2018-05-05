@@ -40,21 +40,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Collider
-    uniqueID: 3129276591
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Ground
     uniqueID: 4263862295
     locked: 0
-  - name: Actor
-    uniqueID: 3041648693
-    locked: 0
   - name: Wall
     uniqueID: 1794454015
     locked: 0
+  - name: Texture
+    uniqueID: 860158487
+    locked: 0
+  - name: Actor
+    uniqueID: 3041648693
+    locked: 0
   - name: Interactable
     uniqueID: 392018269
+    locked: 0
+  - name: Collider
+    uniqueID: 3129276591
     locked: 0

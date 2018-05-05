@@ -49,6 +49,7 @@ public class EnemyClass : MonoBehaviour {
 
 	void Start()
 	{
+		InfoTransition.setInBattle (1);
 		internalName = InfoTransition.getEnemyName(); //Figure out how to send this value
 		Debug.Log ("give me muskrat or give me death");
 		SpriteRenderer rndr = GetComponent<SpriteRenderer>();
@@ -58,9 +59,11 @@ public class EnemyClass : MonoBehaviour {
 		Debug.Log (items);
 		foreach (var item in items) {
 			Debug.Log ("loopy");
+			Debug.Log (item.Parent.Attribute ("internalname").Value.ToString ());
 			Debug.Log (internalName);
 			if (item.Parent.Attribute ("internalname").Value.ToString () == internalName) {
 				health = int.Parse(item.Parent.Element("health").Value);
+				Debug.Log ("Are we actually entering into the loop or is this a problem of name check?");
 				name = item.Parent.Element("Name").Value;
 				introText = item.Parent.Element("Intro-Text").Value.Trim();
 				spriteName = item.Parent.Element("sprite-info").Value.Trim();
@@ -102,16 +105,21 @@ public class EnemyClass : MonoBehaviour {
 				enemyD[3] = int.Parse(item.Parent.Element("EA4D").Value);
 
 				defeat = item.Parent.Element("DText").Value.Trim();
+				//Debug.Log ("R we getting here prquel\t");
 			}
 		}
-
+		Debug.Log ("R we getting here");
 		rndr.sprite = Resources.Load<Sprite> (spriteName);//"Assets/Artwork/sprites/EnemySprites/ElonMuskrat";
+		Debug.Log(introText);
 		General.text = introText;
 		Action1.text = actions [0];
 		Action2.text = actions [1];
 		Action3.text = actions [2];
 		Action4.text = actions [3];
-
+		Debug.Log (actions [0]);
+		Debug.Log (actions [1]);
+		Debug.Log (actions [2]);
+		Debug.Log (actions [3]);
 		btn1.onClick.AddListener (turn1);
 		btn2.onClick.AddListener (turn2);
 		btn3.onClick.AddListener (turn3);
@@ -148,7 +156,7 @@ public class EnemyClass : MonoBehaviour {
 		if (health <= 0) {
 			//Show defeat text
 			General.text = defeat;
-
+			InfoTransition.setInBattle (0);
 			UnityEngine.SceneManagement.SceneManager.LoadScene (InfoTransition.getSceneName());
 
 			Player playerScript = player.GetComponent<Player>();
